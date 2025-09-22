@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GOLFGUYS Workshop — Meyerton | Car & Gearbox Specialists</title>
+  <meta name="description" content="GOLFGUYS — Car & gearbox repairs, diagnostics, turbo repair, software & more in Meyerton, Gauteng." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0b0b;        /* near-black */
+      --muted:#9aa0a6;     /* gray */
+      --accent:#e02b2b;    /* red */
+      --accent-2:#ff4d4d;  /* lighter red */
+      --panel:#111315;     /* dark panel */
+      --white:#f5f5f5;
+      --glass: rgba(255,255,255,0.03);
+      --radius:16px;
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#050505 0%, #0e0e0f 60%);
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+    }
+
+    /* Layout */
+    .container{max-width:1200px;margin:0 auto;padding:28px}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;padding:18px 0;
+    }
+
+    .brand{
+      display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--white);
+    }
+
+    .logo{
+      width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;box-shadow:0 8px 30px rgba(224,43,43,0.14), inset 0 -3px 12px rgba(0,0,0,0.35);
+    }
+
+    .brand h1{font-size:20px;margin:0;letter-spacing:1px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    nav{display:flex;gap:14px;align-items:center}
+    .btn{background:var(--accent);border:none;padding:10px 14px;border-radius:12px;color:var(--white);font-weight:700;cursor:pointer;text-decoration:none}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 12px;border-radius:12px;color:var(--muted);text-decoration:none}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:48px 0}
+    .hero-card{background:linear-gradient(180deg,var(--panel), rgba(255,255,255,0.02));border-radius:18px;padding:28px;box-shadow:0 10px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}
+
+    .hero h2{font-size:44px;margin:0 0 8px;line-height:1.02}
+    .hero p.lead{color:var(--muted);margin:0 0 18px}
+
+    .features{display:flex;gap:12px;flex-wrap:wrap}
+    .chip{background:var(--glass);padding:8px 12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);font-weight:600}
+
+    .contact-card{padding:22px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
+    .contact-card h3{margin:0 0 14px}
+    .contact-row{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+    .icon{width:46px;height:46;border-radius:10px;background:linear-gradient(135deg,#222326, #1a1b1c);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .phone-link{display:block;color:var(--white);text-decoration:none;font-weight:700}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* Services */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:34px 0}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+    .card h4{margin:0 0 8px}
+    .pill{display:inline-block;padding:6px 8px;border-radius:10px;background:rgba(224,43,43,0.12);color:var(--accent);font-weight:700;font-size:12px}
+
+    /* CTA */
+    .cta{display:flex;gap:12px;align-items:center;margin-top:18px}
+
+    /* Testimonials */
+    .testimonials{margin:30px 0}
+    .test-row{display:flex;gap:12px}
+    .testimonial{padding:18px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02)}
+
+    /* Footer */
+    footer{margin-top:42px;padding:28px;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      nav{display:none}
+    }
+    @media (max-width:560px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    /* small goodies */
+    .spark{display:inline-block;padding:6px 8px;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--accent-2));font-weight:800}
+
+    /* simple animations */
+    .fade-in{opacity:0;transform:translateY(12px);animation:fadeUp .7s forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+
+    /* Form */
+    .contact-form input,.contact-form textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white);outline:none}
+    .contact-form label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="#home">
+        <div class="logo">GG</div>
+        <div>
+          <h1>GOLFGUYS</h1>
+          <p>Workshop — Meyerton, Gauteng</p>
+        </div>
+      </a>
+
+      <nav>
+        <a class="ghost" href="#services">Services</a>
+        <a class="ghost" href="#about">About</a>
+        <a class="btn" href="#contact">Book Now</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-card fade-in">
+        <h2>GOLFGUYS — We keep your engine & gearbox singing.</h2>
+        <p class="lead">Specialists in gearbox & clutch repair, turbo, ECU software & diagnostics. Fast turnarounds for private & fleet vehicles around Meyerton.</p>
+
+        <div class="features" style="margin-bottom:18px">
+          <span class="chip">Gearbox rebuilds</span>
+          <span class="chip">ECU software</span>
+          <span class="chip">Turbo repairs</span>
+          <span class="chip">Full diagnostics</span>
+          <span class="chip">Performance tuning</span>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="tel:+276242427870">Call +27 62 424 7870</a>
+          <a class="ghost" href="tel:+27743112244">Call +27 74 311 2244</a>
+          <a class="ghost" href="https://wa.me/276242427870" target="_blank">WhatsApp</a>
+        </div>
+
+        <div style="margin-top:22px;display:flex;gap:12px;align-items:center">
+          <div style="flex:1">
+            <h4 style="margin:0 0 6px">Why choose us</h4>
+            <p class="small">Precision-first approach, OEM parts on request, and in-house software & turbo experts. Transparent quotes and test drives after repair.</p>
+          </div>
+          <div style="width:120px;text-align:right">
+            <span class="pill">Fast diagnostics</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="contact-card fade-in">
+        <h3>Contact & Quick Book</h3>
+        <div class="contact-row">
+          <div class="icon">☎</div>
+          <div>
+            <a class="phone-link" href="tel:+276242427870">+27 62 424 7870</a>
+            <div class="small">WhatsApp: 062 424 7870</div>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="icon">📞</div>
+          <div>
+            <a class="phone-link" href="tel:+27743112244">+27 74 311 2244</a>
+            <div class="small">Alternate contact</div>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="icon">✉</div>
+          <div>
+            <a class="phone-link" href="mailto:golfguys.workshop@gmail.com">golfguys.workshop@gmail.com</a>
+            <div class="small">We respond quickly to email</div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <a class="btn" href="#contact">Book a diagnostic</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <h3 style="margin:8px 0 6px">Our Services</h3>
+      <div class="grid">
+        <div class="card">
+          <h4>Gearbox & Clutch Repairs</h4>
+          <p class="small">Full gearbox rebuilds, clutch replacement, differential services, and warranty options available for many makes.</p>
+          <div style="margin-top:12px"><span class="pill">Experts in manual & auto</span></div>
+        </div>
+
+        <div class="card">
+          <h4>Diagnostics & Software</h4>
+          <p class="small">ECU fault reading, software flashing, immobiliser & key coding and advanced diagnostics using OEM-level tools.</p>
+          <div style="margin-top:12px"><span class="pill">ECU tuning available</span></div>
+        </div>
+
+        <div class="card">
+          <h4>Turbo Repairs & Servicing</h4>
+          <p class="small">Turbo diagnosis, rebuilds, and balancing. We repair/replace cartridges and test boost control systems.</p>
+          <div style="margin-top:12px"><span class="pill">Balanced & tested</span></div>
+        </div>
+
+        <div class="card">
+          <h4>Performance Upgrades</h4>
+          <p class="small">Stage maps, torque management and safe power increases for daily drivers and track cars.</p>
+        </div>
+
+        <div class="card">
+          <h4>Routine Mechanical</h4>
+          <p class="small">Brake service, suspension checks, steering geometry and general repairs. Fleet rates available.</p>
+        </div>
+
+        <div class="card">
+          <h4>Emergency Support</h4>
+          <p class="small">On-request towing and emergency inspections for breakdowns in the Meyerton area.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <h3>What clients say</h3>
+      <div class="test-row">
+        <div class="testimonial" style="flex:1">
+          <strong>Jaco M.</strong>
+          <p class="small">"Saved my gearbox — professional, honest pricing and my Golf drives better than before."</p>
+        </div>
+        <div class="testimonial" style="flex:1">
+          <strong>Mpho S.</strong>
+          <p class="small">"Diagnosed a tricky error code and fixed the turbo. Quick turnaround and clear communication."</p>
+        </div>
+        <div class="testimonial" style="flex:1">
+          <strong>Fleet: TSB Transport</strong>
+          <p class="small">"Great value for fleet servicing and minimal downtime — highly recommended."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact">
+      <h3>Book a visit / Request a quote</h3>
+      <div style="display:grid;grid-template-columns:1fr 380px;gap:22px;margin-top:12px">
+        <form class="hero-card contact-form" onsubmit="return handleForm(event)">
+          <label for="name">Your name</label>
+          <input id="name" name="name" placeholder="Full name" required />
+
+          <label for="phone">Phone (include area code)</label>
+          <input id="phone" name="phone" placeholder="062 424 7870" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" placeholder="you@example.com" />
+
+          <label for="message">What do you need?</label>
+          <textarea id="message" name="message" rows="5" placeholder="Describe the issue, car make/model, or service required" required></textarea>
+
+          <div style="margin-top:12px;display:flex;gap:10px">
+            <button class="btn" type="submit">Send request</button>
+            <a class="ghost" href="tel:+276242427870">Call us</a>
+          </div>
+        </form>
+
+        <div class="hero-card" style="padding:20px">
+          <h4>Visit Us</h4>
+          <p class="small">Meyerton, Gauteng — By appointment & walk-ins accepted.</p>
+
+          <h4 style="margin-top:12px">Quick Links</h4>
+          <ul style="padding-left:18px;color:var(--muted)">
+            <li>Diagnostics — Fast track</li>
+            <li>Gearbox rebuild estimates</li>
+            <li>Turbo inspection</li>
+          </ul>
+
+          <div style="margin-top:18px">
+            <a class="btn" href="mailto:golfguys.workshop@gmail.com">Email us</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <strong>GOLFGUYS</strong>
+        <div class="small">Meyerton, Gauteng • <a href="mailto:golfguys.workshop@gmail.com" style="color:var(--muted);text-decoration:none">golfguys.workshop@gmail.com</a></div>
+      </div>
+      <div style="text-align:right">
+        <div class="small">Phone: +27 62 424 7870 | +27 74 311 2244</div>
+        <div style="margin-top:8px;font-size:12px;color:var(--muted)">© GOLFGUYS 2025 — Built with grit.</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Simple form handler (local only). Replace with real back-end when ready.
+    function handleForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name||!phone||!message){
+        alert('Please complete the required fields.');
+        return false;
+      }
+      // For now we open the user's email client prefilled (convenient for quick demo)
+      const subject = encodeURIComponent('GOLFGUYS: Service request from '+name);
+      const body = encodeURIComponent('Name: '+name+'\nPhone: '+phone+'\n\nMessage:\n'+message+'\n\n---\nSend from website');
+      window.location.href = 'mailto:golfguys.workshop@gmail.com?subject='+subject+'&body='+body;
+      return false;
+    }
+
+    // Small entrance animation delay
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.querySelectorAll('.fade-in').forEach((el,i)=>{el.style.animationDelay=(i*0.08)+'s'});
+    });
+  </script>
+</body>
+</html>
